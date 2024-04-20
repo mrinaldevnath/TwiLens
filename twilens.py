@@ -7,7 +7,7 @@ class TwiLens:
             "sentiment-analysis", model="ClassifierModels/BERT", device=0
         )
         self.summarizermodel = pipeline(
-            "summarization", model="SummarizerModels/PEGASUS", device=0
+            "summarization", model="SummarizerModels/BART", device=0
         )
 
     def get_labels(self, pred):

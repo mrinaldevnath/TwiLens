@@ -1,15 +1,19 @@
+import os
+import re
 import requests
 import pandas as pd
-import re
 from langdetect import detect
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class TwitterAPI:
     def __init__(self):
         self.url = "https://twitter154.p.rapidapi.com/hashtag/hashtag"
         self.headers = {
-            "X-RapidAPI-Key": "17f22a1354msh519ee6dd37bee98p13a068jsndb5c88696b21",
-            "X-RapidAPI-Host": "twitter154.p.rapidapi.com",
+            "X-RapidAPI-Key": os.getenv("RAPIDAPI_KEY"),
+            "X-RapidAPI-Host": os.getenv("RAPIDAPI_HOST"),
         }
 
     def get_user_input(self, prompt):
