@@ -35,4 +35,4 @@ To get started with TwiLens, follow these steps:
 3. Set up your Twitter API credentials in the configuration file.
 4. Run the TwiLens pipeline: `FinalModel.ipynb`
 
-Note: Due to size contrains, the model weights could not be uploaded. Therefore, finetune the models using the code given in FineTune folder
+Note: Due to size constraints, the model weights could not be uploaded. Therefore, finetune the models using the code given in FineTune folder before proceeding with running the TwiLens pipeline.
