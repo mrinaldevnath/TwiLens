@@ -4,6 +4,7 @@ import requests
 import pandas as pd
 from langdetect import detect
 from dotenv import load_dotenv
+from nltk.corpus import stopwords
 
 load_dotenv()
 
@@ -15,6 +16,7 @@ class TwitterAPI:
             "X-RapidAPI-Key": os.getenv("RAPIDAPI_KEY"),
             "X-RapidAPI-Host": os.getenv("RAPIDAPI_HOST"),
         }
+        self.stop_words = set(stopwords.words("english"))
 
     def get_user_input(self, prompt):
         return input(prompt).strip()
@@ -29,9 +31,15 @@ class TwitterAPI:
         return section_choice in ["1", "2"]
 
     def clean_text(self, text):
-        cleaned_text = re.sub(r"#[^\s]+", "", text)
-        cleaned_text = re.sub(r"http[s]?://\S+", "", cleaned_text)
-        return cleaned_text.strip()
+        text = re.sub(r"#[^\s]+", "", text)
+        text = re.sub(r"http[s]?://\S+", "", text)
+        text = re.sub(r"[^a-zA-Z\s]", "", text)
+        words = text.split()
+
+        words = [word for word in words if word not in self.stop_words]
+        if len(words) < 4:
+            return None
+        return " ".join(words)
 
     def retrieve_tweets(self):
         print(
