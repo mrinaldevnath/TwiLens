@@ -14,6 +14,11 @@ TwiLens is an innovative project that combines emotion classification and abstra
 
 - **Performance Evaluation**: TwiLens evaluates the performance of the sentiment analysis models using metrics such as accuracy and F1-score, while the quality and coherence of the generated summaries are assessed using standard metrics like ROUGE scores.
 
+## Workflow of TwiLens
+
+![TwiLens Workflow](FlowDiagram.svg)
+
+
 ## Applications
 
 TwiLens has a wide range of potential applications, including:
